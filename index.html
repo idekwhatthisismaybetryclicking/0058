@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device=width, initial-scale=1.0">
+    <title>Countdown Timer
+    </title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <p>Just To Let You Know</p>
+        <h1>steb is about to get a <span>laptop</span></h1>
+        <h1><span1>Times left before he showcases it:</span1></h1>
+        <div class="launch-time">
+            <div>
+                <h2 id="days">00</h2>
+                <span>Days</span>
+            </div>
+            <div>
+                <h2 id="hours">00</h2>
+                <span>Hours</span>
+            </div>
+            <div>
+                <h2 id="minutes">00</h2>
+                <span>Minutes</span>
+            </div>
+            <div>
+                <h2 id="seconds">00</h2>
+                <span>Seconds</span>
+            </div>
+        </div>
+        <audio id="backgroundMusic" src="audio/TheFatRat - Xenogenesis (Outro Song).mp3" preload="auto"></audio>
+    </div>
+</div>
+<script>
+    var countDownDate = new Date("April 6, 2025 14:00:00").getTime();
+    var x = setInterval(function(){
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        if(distance < 0){
+            clearInterval(x);
+            document.getElementById("days").innerHTML = "00";
+            document.getElementById("hours").innerHTML = "00";
+            document.getElementById("minutes").innerHTML = "00";
+            document.getElementById("seconds").innerHTML = "00";
+        }
+    }, 1000);
+    function playAudio() {
+        var audio = document.getElementById("myAudio");  
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+
+        if(distance <= 58000 && distance >0){
+            audio.currentTime = (58 - (distance/1000));
+            audio.play();
+        }   
+    }
+</script>
+</body>
+</html> 
