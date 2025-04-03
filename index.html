@@ -30,6 +30,7 @@
                 <span>Seconds</span>
             </div>
         </div>
+        <button type="button" onclick="window.open('https://discord.com/channels/772254910556143637/777360104105836574', '_blank');">after the timer ends, please wait in this room<img src="images/discord_logo-freelogovectors.net_-400x225.png"></button>
         <audio id="backgroundMusic" src="audio/TheFatRat - Xenogenesis (Outro Song).mp3" preload="auto"></audio>
     </div>
 </div>
@@ -48,6 +49,25 @@
         document.getElementById("hours").innerHTML = hours;
         document.getElementById("minutes").innerHTML = minutes;
         document.getElementById("seconds").innerHTML = seconds;
+        
+        var redTime = (0 * 24 * 60 * 60 * 1000) +  (14 * 60 * 60 * 1000) + (0 * 60 * 1000) + (0 * 1000);
+        if(distance < redTime && distance > 0){
+                document.querySelector('.launch-time').classList.add('blue-timer');
+            }
+        var redTime = (0 * 24 * 60 * 60 * 1000) +  (0 * 60 * 60 * 1000) + (0 * 60 * 1000) + (59 * 1000);
+        if(distance < redTime && distance > 0){
+            if(seconds % 2 === 0){
+                document.querySelector('.launch-time').classList.add('red-timer');
+                document.querySelector('.launch-time').classList.remove('purple-timer');
+            }   else{
+                document.querySelector('.launch-time').classList.remove('red-timer');
+                document.querySelector('.launch-time').classList.add('purple-timer');
+            }
+        }
+        var redTime = (0 * 24 * 60 * 60 * 1000) +  (0 * 60 * 60 * 1000) + (0 * 60 * 1000) + (0 * 1000);
+        if(distance < redTime && distance > 0){
+                document.querySelector('.launch-time').classList.add('green-timer');
+            }
 
         if(distance < 0){
             clearInterval(x);
