@@ -9,9 +9,13 @@
 <body>
 <div class="container">
     <div class="content">
-        <p>Just To Let You Know</p>
-        <h1>steb is about to get a <span>laptop</span></h1>
-        <h1><span1>Times left before he showcases it:</span1></h1>
+        <p>bro thought he gonna showcases it exactly when the timer ends</p>
+        <h1>this web was made in <span>april fools</span> bro</h1>
+        <h1>let me tell u smth, he got a <span>laptop</span> already</h1>
+        <h1>but spare him, he have to <span>download</span> shits</h1>
+        <h1><span1>Well, this time, the countdown will be updated regularly</span1></h1>
+        <h1><span1>AND will have you updated every minutes</span1></h1>
+        <h1><span1>Times left (estimation) before he ACTUALLY showcases it:</span1></h1>
         <div class="launch-time">
             <div>
                 <h2 id="days">00</h2>
@@ -35,7 +39,7 @@
     </div>
 </div>
 <script>
-    var countDownDate = new Date("April 6, 2025 14:00:00").getTime();
+    var countDownDate = new Date("April 10, 2025 19:00:00").getTime();
     var x = setInterval(function(){
         var now = new Date().getTime();
         var distance = countDownDate - now;
@@ -50,45 +54,38 @@
         document.getElementById("minutes").innerHTML = minutes;
         document.getElementById("seconds").innerHTML = seconds;
         
-        var redTime = (0 * 24 * 60 * 60 * 1000) +  (14 * 60 * 60 * 1000) + (0 * 60 * 1000) + (0 * 1000);
+        var redTime = (0 * 24 * 60 * 60 * 1000) +  (19 * 60 * 60 * 1000) + (0 * 60 * 1000) + (0 * 1000);
         if(distance < redTime && distance > 0){
                 document.querySelector('.launch-time').classList.add('blue-timer');
             }
         var redTime = (0 * 24 * 60 * 60 * 1000) +  (0 * 60 * 60 * 1000) + (0 * 60 * 1000) + (59 * 1000);
         if(distance < redTime && distance > 0){
-            document.querySelector('.launch-time').classList.remove('blue-timer');
+            document.getElementById("backgroundMusic").play();
+            document.querySelector('.launch-time').classList.remove('blue-timer')
             if(seconds % 2 === 0){
+                document.querySelector('.launch-time').classList.remove('purple-timer')
                 document.querySelector('.launch-time').classList.add('red-timer');
-                document.querySelector('.launch-time').classList.remove('purple-timer');
+                
             }   else{
                 document.querySelector('.launch-time').classList.remove('red-timer');
                 document.querySelector('.launch-time').classList.add('purple-timer');
             }
         }
         var redTime = (0 * 24 * 60 * 60 * 1000) +  (0 * 60 * 60 * 1000) + (0 * 60 * 1000) + (0 * 1000);
-        if(distance < redTime && distance > 0){
+        if(distance < redTime){
                 document.querySelector('.launch-time').classList.remove('purple-timer');
                 document.querySelector('.launch-time').classList.add('green-timer');
+                
             }
-
         if(distance < 0){
             clearInterval(x);
             document.getElementById("days").innerHTML = "00";
             document.getElementById("hours").innerHTML = "00";
             document.getElementById("minutes").innerHTML = "00";
             document.getElementById("seconds").innerHTML = "00";
-        }
+        }    
     }, 1000);
-    function playAudio() {
-        var audio = document.getElementById("myAudio");  
-        var now = new Date().getTime();
-        var distance = countDownDate - now;
 
-        if(distance <= 58000 && distance > 0){
-            audio.currentTime = (58 - (distance/1000));
-            audio.play();
-        }   
-    };
 </script>
 </body>
-</html> 
+</html>  
